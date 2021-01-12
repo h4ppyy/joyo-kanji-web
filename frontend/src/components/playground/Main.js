@@ -38,6 +38,8 @@ const Main = () => {
 
   return (
     <div className="container">
+      <h1 class="text-center mt-5 mb-4">상용한자 2136</h1>
+
       <div className="table-responsive-lg">
         <table className="table table-bordered">
           <thead>
