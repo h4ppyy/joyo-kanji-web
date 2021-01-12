@@ -8,6 +8,7 @@ const Main = () => {
   const showWord = () => {
     MySwal.fire({
       confirmButtonText: '확인',
+      confirmButtonColor: '#212529',
       title: '覚',
       html: `
         <div class="word-box">

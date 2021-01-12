@@ -33,9 +33,17 @@ body {
 }
 
 .word-txt > .kanji {
-  color: black;
+  color: #c9d1d9;
 }
 
 .word-txt > .hangul {
-  color: #a5a5a5;
+  color: #8b949e;
+}
+
+.swal2-popup {
+  background-color: #071117 !important;
+}
+
+.swal2-title {
+  color: #f0f6fc !important; 
 }
