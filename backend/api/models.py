@@ -1,3 +1,15 @@
+import os
 from django.db import models
+from django.conf import settings
 
-# Create your models here.
+class Kanji(models.Model):
+    kanji = models.CharField(max_length=255, unique=True)
+    mean = models.CharField(max_length=255)
+    kunyomi = models.CharField(max_length=255, blank=True, null=True)
+    onyomi = models.CharField(max_length=255, blank=True, null=True)
+
+class Word(models.Model):
+    kanji = models.ForeignKey(Kanji, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=os.path.join(settings.UPLOAD_DIR, 'word'))
+    word = models.CharField(max_length=255)
+    mean = models.CharField(max_length=255)

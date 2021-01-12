@@ -8,6 +8,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+UPLOAD_DIR = 'upload'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,7 +53,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'joyo_kanij',
+        'NAME': 'joyo_kanji',
         'USER': 'docker',
         'PASSWORD': 'docker',
         'HOST': 'localhost',
