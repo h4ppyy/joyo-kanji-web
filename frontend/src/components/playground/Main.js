@@ -9,8 +9,26 @@ const Main = () => {
     MySwal.fire({
       confirmButtonText: '확인',
       confirmButtonColor: '#212529',
-      title: '覚',
       html: `
+        <h2 class="f1 mb-4">
+          覚
+        </h2>
+        <div class="word-box">
+          <img class="word-img" src="/sample/視覚.jpg">
+          <div class="word-txt">
+            <span class="kanji">視覚</span>
+            <span class="hangul">시각</span>
+          </div>
+        </div>
+        
+        <div class="word-box">
+          <img class="word-img" src="/sample/知覚.jpg">
+          <div class="word-txt">
+            <span class="kanji">知覚</span>
+            <span class="hangul">지각</span>
+          </div>
+        </div>
+
         <div class="word-box">
           <img class="word-img" src="/sample/視覚.jpg">
           <div class="word-txt">
