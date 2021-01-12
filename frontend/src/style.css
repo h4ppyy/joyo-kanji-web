@@ -1,3 +1,23 @@
+body {
+  background-color: #071117;
+}
+
+.f1 {
+  color: #f0f6fc;
+}
+
+.f2 {
+  color: #c9d1d9;
+}
+
+.f3 {
+  color: #8b949e;
+}
+
+.a1 {
+  color: #58a6ff;
+}
+
 .word-box {
   margin-bottom: 20px;
 }
