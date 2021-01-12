@@ -1,9 +1,8 @@
+import Main from './components/playground/Main'
+
 function App() {
   return (
-    <div>
-      hello
-    </div>
-
+    <Main />
   );
 }
 
