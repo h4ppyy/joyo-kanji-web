@@ -1,9 +1,46 @@
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 const Main = () => {
+
+  const MySwal = withReactContent(Swal)
+
+  const showWord = () => {
+    MySwal.fire({
+      confirmButtonText: '확인',
+      title: '覚',
+      html: `
+        <div class="word-box">
+          <img class="word-img" src="/sample/視覚.jpg">
+          <div class="word-txt">
+            <span class="kanji">視覚</span>
+            <span class="hangul">시각</span>
+          </div>
+        </div>
+        
+        <div class="word-box">
+          <img class="word-img" src="/sample/知覚.jpg">
+          <div class="word-txt">
+            <span class="kanji">知覚</span>
+            <span class="hangul">지각</span>
+          </div>
+        </div>
+      `
+    })
+  }
+
+  const loop = [
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+  ]
+
   return (
     <div className="container">
-      <div className="table-responsive-sm">
-        <table className="table">
-          <thead className="thead-light">
+      <div className="table-responsive-lg">
+        <table className="table table-bordered">
+          <thead>
             <tr>
               <th scope="col">번호</th>
               <th scope="col">뜻</th>
@@ -14,23 +51,28 @@ const Main = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>깨달을 각</td>
-              <td>覚</td>
-              <td>かく</td>
-              <td>おぼえる、さます、さめる</td>
-              <td>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  Link with href
-                </a>
-              </td>
-            </tr>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              </div>
-            </div>
+            {
+              loop.map(() => {
+                return (
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>깨달을 각</td>
+                    <td>覚</td>
+                    <td>かく</td>
+                    <td>おぼえる、さます、さめる</td>
+                    <td>
+                      <button
+                        className="btn btn-primary"
+                        type="button"
+                        onClick={() => showWord()}
+                      >
+                        단어
+                  </button>
+                    </td>
+                  </tr>
+                )
+              })
+            }
           </tbody>
         </table>
       </div>
