@@ -61,3 +61,14 @@ http://localhost:8000/admin
 
 ### admin v1
 ![v1_admin](https://github.com/h4ppyy/joyo-kanji-web/blob/master/demo/v1/admin.gif?raw=true "v1_admin")
+
+## dev note
+
+### day-1
+https://www.notion.so/joyokanji/64d9e7d998e44337ba10a5dd4b74d58c
+
+### day-2
+https://www.notion.so/joyokanji/143e6256be07490b93897fc3c20b5a1f
+
+### day-3
+https://www.notion.so/joyokanji/b01d834d4950425a8b61153a36cee8f5
