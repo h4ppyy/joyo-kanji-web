@@ -1,5 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import axios from 'axios'
 
 const Main = () => {
 
@@ -48,12 +50,26 @@ const Main = () => {
     })
   }
 
-  const loop = [
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-  ]
+  const [kanjiList, setKanjiList] = useState([]);
+
+  const getKanjiList = async () => {
+    const url = '/api/v1/get_kanji_list'
+    return await axios.get(url);
+  }
+
+  const getInitData = async () => {
+    const result = await getKanjiList()
+    console.log('result = ', result)
+    if (result.status === 200) {
+      setKanjiList(result.data)
+    }
+  }
+
+  useEffect(() => {
+    if (kanjiList.length === 0) {
+      getInitData()
+    }
+  }, []);
 
   return (
     <>
@@ -74,21 +90,21 @@ const Main = () => {
             </thead>
             <tbody>
               {
-                loop.map((item, idx) => {
+                kanjiList.map((item, idx) => {
                   return (
                     <tr key={idx}>
-                      <th className="text-center" scope="row">1</th>
-                      <td>깨달을 각</td>
-                      <td className="text-center">覚</td>
-                      <td>かく</td>
-                      <td>おぼえる、さます、さめる</td>
+                      <th className="text-center" scope="row">{item.pk}</th>
+                      <td>{item.fields.mean}</td>
+                      <td className="text-center">{item.fields.kanji}</td>
+                      <td>{item.fields.kunyomi}</td>
+                      <td>{item.fields.onyomi}</td>
                       <td className="text-center">
                         <button
                           className="btn btn-outline-light"
                           type="button"
                           onClick={() => showWord()}
                         >
-              단어
+                          단어
                     </button>
                       </td>
                     </tr>
