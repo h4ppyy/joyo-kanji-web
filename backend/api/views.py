@@ -10,3 +10,9 @@ def get_kanji_list(request):
     kanjis = Kanji.objects.all()
     kanjis = serializers.serialize('json', kanjis)
     return HttpResponse(kanjis, content_type='application/json')
+
+def get_word_list(request):
+    pk = request.GET.get('pk')
+    words = Word.objects.filter(kanji=pk)
+    words = serializers.serialize('json', words)
+    return HttpResponse(words, content_type='application/json')

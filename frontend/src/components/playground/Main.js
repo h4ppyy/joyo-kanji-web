@@ -7,54 +7,52 @@ const Main = () => {
 
   const MySwal = withReactContent(Swal)
 
-  const showWord = () => {
-    MySwal.fire({
-      confirmButtonText: '확인',
-      confirmButtonColor: '#212529',
-      html: `
-        <h2 class="f1 mb-4">
-          覚
-        </h2>
-        <div class="word-box">
-          <img class="word-img" src="/sample/視覚.jpg">
-          <div class="word-txt">
-            <span class="kanji">視覚</span>
-            <span class="hangul">시각</span>
-          </div>
-        </div>
-        
-        <div class="word-box">
-          <img class="word-img" src="/sample/知覚.jpg">
-          <div class="word-txt">
-            <span class="kanji">知覚</span>
-            <span class="hangul">지각</span>
-          </div>
-        </div>
-
-        <div class="word-box">
-          <img class="word-img" src="/sample/視覚.jpg">
-          <div class="word-txt">
-            <span class="kanji">視覚</span>
-            <span class="hangul">시각</span>
-          </div>
-        </div>
-        
-        <div class="word-box">
-          <img class="word-img" src="/sample/知覚.jpg">
-          <div class="word-txt">
-            <span class="kanji">知覚</span>
-            <span class="hangul">지각</span>
-          </div>
-        </div>
-      `
-    })
-  }
-
-  const [kanjiList, setKanjiList] = useState([]);
+  const [kanjiList, setKanjiList] = useState([])
 
   const getKanjiList = async () => {
     const url = '/api/v1/get_kanji_list'
-    return await axios.get(url);
+    return await axios.get(url)
+  }
+
+  const getWordList = async (pk) => {
+    const url = '/api/v1/get_word_list'
+    return await axios.get(url, { params: { pk: pk } })
+  }
+
+  const showWord = async (pk, kanji) => {
+    const result = await getWordList(pk)
+    console.log('result = ', result)
+
+    if (result.status === 200) {
+      
+      let html = `
+        <h2 class="f1 mb-4">
+          ${kanji}
+        </h2>
+      `
+
+      result.data.length === 0 ? (
+        html = '<div class="f2">등록된 단어가 없습니다.</div>'
+      ) : (
+        result.data.map((item, idx) => {
+          html += `
+            <div class="word-box">
+              <img class="word-img" src="${item.fields.image}">
+              <div class="word-txt">
+                <span class="kanji">${item.fields.word}</span>
+                <span class="hangul">${item.fields.mean}</span>
+              </div>
+            </div>
+          `
+        })
+      )
+
+      MySwal.fire({
+        confirmButtonText: '확인',
+        confirmButtonColor: '#212529',
+        html: html
+      })
+    }
   }
 
   const getInitData = async () => {
@@ -102,7 +100,7 @@ const Main = () => {
                         <button
                           className="btn btn-outline-light"
                           type="button"
-                          onClick={() => showWord()}
+                          onClick={() => showWord(item.pk, item.fields.kanji)}
                         >
                           단어
                     </button>
