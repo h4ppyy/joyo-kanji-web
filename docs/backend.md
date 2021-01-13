@@ -32,3 +32,13 @@ Superuser created successfully.
 ```
 python manage.py makemigrations
 ```
+
+### dump data (utf-8 bug)
+```
+python manage.py dumpdata --indent 2 api > sql/data/data.json
+```
+
+### restore data
+```
+python manage.py loaddata sql/data/data.json
+```
