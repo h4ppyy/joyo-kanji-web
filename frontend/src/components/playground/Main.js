@@ -78,12 +78,12 @@ const Main = () => {
           <table className="table table-borderless f2">
             <thead>
               <tr>
-                <th className="text-center" scope="col">번호</th>
-                <th className="text-center" scope="col">뜻</th>
-                <th className="text-center" scope="col">한자</th>
-                <th className="text-center" scope="col">훈독</th>
-                <th className="text-center" scope="col">음독</th>
-                <th className="text-center" scope="col">단어확인</th>
+                <th className="text-center" style={{width: '10%'}}>번호</th>
+                <th className="text-center" style={{width: '10%'}}>뜻</th>
+                <th className="text-center" style={{width: '10%'}}>한자</th>
+                <th className="text-center" style={{width: '20%'}}>훈독</th>
+                <th className="text-center" style={{width: '20%'}}>음독</th>
+                <th className="text-center" style={{width: '10%'}}>단어</th>
               </tr>
             </thead>
             <tbody>
