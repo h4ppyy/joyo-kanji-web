@@ -56,6 +56,8 @@ http://localhost:8000/admin
 
 ## demo
 
+### user v1
 ![v1_user](https://github.com/h4ppyy/joyo-kanji-web/blob/master/demo/v1/user.gif?raw=true "v1_user")
 
+### admin v1
 ![v1_admin](https://github.com/h4ppyy/joyo-kanji-web/blob/master/demo/v1/admin.gif?raw=true "v1_admin")
