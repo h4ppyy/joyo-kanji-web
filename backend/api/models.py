@@ -3,7 +3,7 @@ from django.db import models
 from django.conf import settings
 
 class Kanji(models.Model):
-    kanji = models.CharField(max_length=255, unique=True)
+    kanji = models.CharField(max_length=255)
     mean = models.CharField(max_length=255)
     kunyomi = models.CharField(max_length=255, blank=True, null=True)
     onyomi = models.CharField(max_length=255, blank=True, null=True)
