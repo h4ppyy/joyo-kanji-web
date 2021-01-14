@@ -42,3 +42,7 @@ python manage.py dumpdata --indent 2 api > sql/data/data.json
 ```
 python manage.py loaddata sql/data/data.json
 ```
+
+### django admin - change foreign key display
+
+https://btj0.com/blog/django/django-admin-site-customize-foreign-key/
