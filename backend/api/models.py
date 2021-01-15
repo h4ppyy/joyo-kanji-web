@@ -9,7 +9,7 @@ class Kanji(models.Model):
     onyomi = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return '{kanji} - {mean}'.format(kanji=self.kanji, mean=self.mean)
+        return '{id} - {kanji} - {mean}'.format(id=self.id, kanji=self.kanji, mean=self.mean)
 
 class Word(models.Model):
     kanji = models.ForeignKey(Kanji, on_delete=models.CASCADE)
